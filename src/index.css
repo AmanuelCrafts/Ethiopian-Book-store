@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: black;
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ensure the slick arrows are visible */
+.slick-prev,
+.slick-next {
+  z-index: 1; /* Ensure arrows are above other content */
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #000; /* Arrow icon color */
+  font-size: 25px; /* Adjust size as needed */
+}
+
+.slick-prev {
+  left: 10px; /* Position from the left */
+}
+
+.slick-next {
+  right: 10px; /* Position from the right */
+}
