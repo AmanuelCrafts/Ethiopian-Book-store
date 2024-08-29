@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../config/firebase"; // Import Firebase Firestore instance
+import { db } from "../config/firebase";
 import BookCard from "../components/BookCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -56,14 +56,14 @@ const Books = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -73,15 +73,18 @@ const Books = () => {
   const gradeBooks = (grade) => books.filter((book) => book.grade === grade);
 
   return (
-    <div className="bg-background flex flex-col gap-10 py-10 px-5 lg:px-20">
+    <div className="mx-auto bg-background flex flex-col gap-10 py-10 px-5 lg:px-20">
       {loading ? (
         <Loader />
       ) : (
         ["Grade 9", "Grade 10", "Grade 11", "Grade 12"].map((grade) => (
           <div key={grade} className="my-2">
-            <h2 className="text-2xl font-semibold mb-4 text-primary-content">{`${grade} Books`}</h2>
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 text-primary-content">{`${grade} Books`}</h2>
             <div className="overflow-hidden">
-              <Slider {...settings} className="react-slick-slider px-24">
+              <Slider
+                {...settings}
+                className="react-slick-slider pl-[5rem] px-0 md:px-8"
+              >
                 {gradeBooks(grade).map((book) => (
                   <BookCard
                     key={book.id}
